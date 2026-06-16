@@ -88,16 +88,18 @@
 </section>
 
 <script>
-  function switchLanguage() {
-    const currentPage = window.location.pathname.split("/").pop();
+function switchLanguage() {
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
 
-    if (currentPage.includes("_kr")) {
-        window.location.href = currentPage.replace("_kr", "_cn");
-    } else if (currentPage.includes("_cn")) {
-        window.location.href = currentPage.replace("_cn", "_kr");
-    } else if (currentPage === "index.html") {
-        window.location.href = "index_cn.html";
-    }
+  if (currentPage === "index.html") {
+    window.location.href = "index_cn.html";
+  } else if (currentPage === "index_cn.html") {
+    window.location.href = "index.html";
+  } else if (currentPage.includes("_kr")) {
+    window.location.href = currentPage.replace("_kr", "_cn");
+  } else if (currentPage.includes("_cn")) {
+    window.location.href = currentPage.replace("_cn", "_kr");
+  }
 }
 </script>
 
